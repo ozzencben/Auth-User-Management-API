@@ -13,16 +13,19 @@ export const checkEmailAvailability = async (email) => {
 export const forgotPassword = async (email) => {
   try {
     const res = await api.post('/users/forgot-password', { email });
-    return res.data.message;
+    return res.data; // artık { message, resetToken } dönüyor
   } catch (error) {
     console.error(error);
-    return error.response.data.message;
+    return { error: error.response?.data?.message || 'Error' };
   }
 };
 
 export const resetPassword = async (resetToken, newPassword) => {
   try {
-    const res = await api.post('/users/reset-password', { resetToken, newPassword });
+    const res = await api.post('/users/reset-password', {
+      resetToken,
+      newPassword,
+    });
     return res.data.message;
   } catch (error) {
     console.error(error);

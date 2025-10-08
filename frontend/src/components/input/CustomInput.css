@@ -1,0 +1,27 @@
+.input-box {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  font-size: 18px;
+  padding: 5px;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+::placeholder {
+    font-size: 15px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.icon-box {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
